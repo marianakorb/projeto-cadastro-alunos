@@ -5,7 +5,15 @@ body {
     height: 100vh;
 }
 
-div {
+body#index {
+   background-image: url(https://escolasexponenciais.com.br/wp-content/uploads/2018/11/qual-a-influencia-da-infraestrutura.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   backdrop-filter: blur(3px); 
+   background-color: rgba(100, 100, 100, 0)
+}
+
+div.c {
    position: absolute;
    top: 50%;
    left: 50%;
@@ -18,7 +26,8 @@ a {
 
 div#form {
    padding: 20px;
-   width: 400px !important;
+   width: 400px;
+   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.431);
 }
 
 input#f, input#m {
