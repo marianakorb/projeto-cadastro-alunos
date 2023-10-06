@@ -17,11 +17,11 @@
           <label for="idade">Idade: </label>
           <input type="text" name="idade" id="idade"><br>
           <label for="">Gênero: </label>
-          <input type="radio" name="genero" id="m" value="Masculino">
-          <label for="m">Masculino</label>
+          <input type="radio" name="genero" id="Masculino" value="Masculino">
+          <label for="Masculino">Masculino</label>
 
-          <input type="radio" name="genero" id="f" value="Feminino">
-          <label for="f">Feminino </label>
+          <input type="radio" name="genero" id="Feminino" value="Feminino">
+          <label for="Feminino">Feminino </label>
 
           <select id="select" class="form-select" aria-label="Default select example">
                 <option selected>Selecione a sua fase</option>
@@ -40,7 +40,28 @@
           <a href="index.html"><button type="button" class="btn btn-danger">Cancelar</button></a>
         </form>
     </div>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  let inputnome = document.getElementById("nome");
+  let inputidade = document.getElementById("idade");
+  let inputgenero = document.querySelector('input[name="genero"]');
+  let inputfase = document.getElementById("select");
+  
+  for (const [key, value] of params) {
+    inputnome.value = params.get("nome");
+    inputidade.value = params.get("idade");
 
+    if (params.has("genero")) {
+    const genero = params.get("genero");
+    if (genero === "Masculino" || genero === "Feminino") {
+    // Check the appropriate radio button based on the gender parameter
+    document.querySelector(`input[value="${genero}"]`).checked = true;
+    }
+  }
+    //inputgenero.value = params.get("genero");
+    inputfase.value = params.get("fase");
+  }
+</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
   </body>
